@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <title>Climate Home Online Shop</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="TemplatesJungle">
+  <meta name="keywords" content="pet, store">
+  <meta name="description" content="Pet Store HTML Website Template">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/vendor.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %} ">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+
+<body>
+   {% include 'svg.html' %}
+
+  <div class="preloader-wrapper">
+    <div class="preloader">
+    </div>
+  </div>
+
+
+
+  <div class="offcanvas offcanvas-top" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch">
+    <div class="offcanvas-header justify-content-center">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Search</span>
+        </h4>
+        <form role="search" action="" method="get" class="d-flex mt-3 gap-0">
+          <input class="form-control rounded-start rounded-0 bg-light" type="email"
+            placeholder="What are you looking for?" aria-label="What are you looking for?">
+          <button class="btn btn-dark rounded-end rounded-0" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container-lg">
+      <div class="row py-4">
+
+        <div class="col-sm-6 col-md-5 col-lg-3 justify-content-center justify-content-lg-between text-center text-sm-start d-flex gap-3">
+          <div class="d-flex align-items-center">
+            <a href="index.html">
+
+
+              <img src="{% static 'images/logo.svg' %}" alt="logo" class="img-fluid">
+            </a>
+            <button class="navbar navbar-toggler ms-3 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-7 d-none d-md-block">
+          <div class="search-bar row justify-content-between bg-light p-2 rounded-4">
+            <div class="col-11">
+              <form id="search-form" class="text-center" action="index.html" method="post">
+                <input type="text" class="form-control border-0 bg-transparent"
+                  placeholder="Search for more than 20,000 products">
+              </form>
+            </div>
+            <div class="col-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                  d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <nav class="p-0 navbar navbar-expand-lg">
+        
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+          <div class="offcanvas-body justify-content-center">
+
+            <ul class="navbar-nav mb-0">
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end active">
+                <a href="#" class="nav-link fw-bold px-4 py-3">Home</a>
+              </li>
+
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end">
+                <a href="#sale" class="nav-link fw-bold px-4 py-3">Free Delivery</a>
+              </li>
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end">
+                <a href="#blog" class="nav-link fw-bold px-4 py-3">Blog</a>
+              </li>
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end">
+                <a href="#shop" class="nav-link fw-bold px-4 py-3">Shop</a>
+              </li>
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end">
+                <a href="#blog" class="nav-link fw-bold px-4 py-3">Offers</a>
+              </li>
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end">
+                <a href="#sale" class="nav-link fw-bold px-4 py-3">Sale</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+
+    <div class="slideshow slide-in arrow-absolute text-white position-relative">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide jarallax">
+
+          <img src="{% static 'images/prod6.png' %}" class="jarallax-img" alt="slideshow">
+          <div class="banner-content w-100 my-5">
+            <div class="container">
+              <div class="row justify-content-center text-center">
+                <div class="col-md-12 pt-2">
+                  <p class="fs-3">Eng Arzon va Sifatli Premium Jihozlar</p>
+                  <h2 class="display-1 text-white text-uppercase ls-0">Climate Home</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="pagination-wrapper position-absolute bottom-0 mb-4 text-center">
+        <div class="container">
+          <div class="slideshow-swiper-pagination light"></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="shop-categories" class="section-padding" >
+    <div class="container-lg">
+      <div class="row g-md-5">
+        <div class="col-md-3">
+          <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
+
+<!--            categoriyalar   -->
+            <li class="nav-item">
+              <a href="{% url 'ctg_filter' slug='isitish' %}#shop-categories" class="nav-link d-flex align-items-center gap-3 p-2">
+                <i class="fa-solid fa-water"></i>
+                <span>Isitish Moslamalari</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'ctg_filter' slug='vent' %}#shop-categories" class="nav-link d-flex align-items-center gap-3 p-2">
+                <i class="fa-solid fa-snowflake"></i>
+                <span>Ventilyator</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'ctg_filter' slug='namlagich' %}#shop-categories" class="nav-link d-flex align-items-center gap-3 p-2">
+                <i class="fa-solid fa-wind"></i>
+
+                <span>Havo Namlagich</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'ctg_filter' slug='fonar' %}#shop-categories" class="nav-link d-flex align-items-center gap-3 p-2">
+                <i class="fa-solid fa-filter"></i>
+                <span>Fonarlar</span>
+              </a>
+            </li>
+            <li class="nav-item position-relative">
+              <a href="{% url 'ctg_filter' slug='elektronika' %}#shop-categories" class="nav-link d-flex align-items-center gap-3 p-2">
+                <div class="d-flex gap-3">
+                  <i class="fas fa-house"></i>
+                  <span>Electronika</span>
+                </div>
+              </a>
+
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'ctg_filter' slug='oshxona' %}#shop-categories" class="nav-link d-flex align-items-center gap-3 p-2">
+                <i class="fa-solid fa-kitchen-set"></i>
+                <span>Oshxona Jihozlari</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'ctg_filter' slug='aksessuar' %}#shop-categories" class="nav-link d-flex align-items-center gap-3 p-2">
+                <i class="fa-solid fa-keyboard"></i>
+                <span>Aksessuarlar</span>
+              </a>
+            </li>
+
+
+
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-12">
+
+              <div class="section-header d-flex flex-wrap justify-content-between pb-2 mt-5 mt-lg-0">
+                <h2 class="section-title">Eng Savdobop tavarlar</h2>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+
+              <div class="product-grid row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4">
+
+
+                {% for i in products %}
+
+                <div class="col">
+                  <div class="product-item mb-4">
+                    <figure class="flex justify-center items-center">
+                      <a href="{% url 'detail' pk=i.id %}" title="Product Title">
+
+
+                        <img src="{{ i.get_image.url }}"  style="max-width: 185px; max-height: 185px; width: 185px; height: 185px;"
+                             alt="{{ i.get_image.url }}" class="tab-image img-fluid rounded-3">
+                      </a>
+                    </figure>
+                    <div class="d-flex flex-column text-center">
+                      <h3 class="fs-5 fw-normal">
+                        <a href="{% url 'detail' pk=i.id %}" class="text-decoration-none">{{ i.name }}</a>
+                      </h3>
+                      <div class="d-flex justify-content-center align-items-center gap-2">
+                        {% if i.discount %}
+                        <del style="color: red;">{{ i.org_price }}</del>
+                        {% endif %}
+                        <span class="text-dark fw-semibold">{{ i.get_price }} UZS</span>
+                      </div>
+
+                      <div class="d-flex justify-content-center align-items-center gap-2">
+                        <span class="text-danger fw-semibold">Skidka: {{ i.discount }}%  </span>
+                      </div>
+
+                      <div class="button-area p-3">
+
+                        <div class=" flex justify-center items-center"><a href="{% url 'detail' pk=i.id %}" class="btn btn-primary rounded-1 flex justify-center items-center fs-7 btn-cart">
+                          <svg width="18" height="18">
+                            <use xlink:href="#cart"></use>
+                          </svg>Zakaz berish</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+              </div>
+              <!-- / product-grid -->
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+    <section id="latest-blog" class="section-padding pt-0">
+    <div class="container-lg">
+      <div class="row">
+        <div class="section-header d-flex align-items-center justify-content-between mb-lg-2">
+          <h2 class="section-title">Our recent blog</h2>
+          <a href="#" class="btn btn-primary">View All</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <article class="post-item card border-1 border-light shadow-sm p-3">
+            <div class="image-holder zoom-effect">
+              <a href="#">
+
+
+                <img src="{% static 'images/reviewer-3' %}.jpg" alt="post" class="card-img-top">
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="post-meta d-flex text-uppercase gap-3 my-3 align-items-center">
+                <div class="meta-date"><a href="blog.html" class="text-decoration-none">22 Aug 2021</a></div>
+                <div class="meta-categories"><a href="blog.html" class="text-decoration-none">tips & tricks</a></div>
+              </div>
+              <div class="post-header">
+                <h3 class="fs-5 fw-normal">
+                  <a href="#" class="text-decoration-none">Tips for Keeping Your Furry Friend Happy and Healthy</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec
+                  quam...</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="post-item card border-1 border-light shadow-sm p-3">
+            <div class="image-holder zoom-effect">
+              <a href="#">
+
+
+                <img src="{% static 'images/reviewer-2' %}.jpg" alt="post" class="card-img-top">
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="post-meta d-flex text-uppercase gap-3 my-3 align-items-center">
+                <div class="meta-date"><a href="blog.html" class="text-decoration-none">22 Aug 2021</a></div>
+                <div class="meta-categories"><a href="blog.html" class="text-decoration-none">tips & tricks</a></div>
+              </div>
+              <div class="post-header">
+                <h3 class="fs-5 fw-normal">
+                  <a href="#" class="text-decoration-none">Top 10 Must-Have Pet Products Every Pet Owner Needs</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec
+                  quam...</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="post-item card border-1 border-light shadow-sm p-3">
+            <div class="image-holder zoom-effect">
+              <a href="#">
+
+
+                <img src="{% static 'images/reviewer-1' %}.jpg" alt="post" class="card-img-top">
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="post-meta d-flex text-uppercase gap-3 my-3 align-items-center">
+                <div class="meta-date"><a href="blog.html" class="text-decoration-none">22 Aug 2021</a></div>
+                <div class="meta-categories"><a href="blog.html" class="text-decoration-none">tips & tricks</a></div>
+              </div>
+              <div class="post-header">
+                <h3 class="fs-5 fw-normal">
+                  <a href="#" class="text-decoration-none">How to Choose the Perfect Pet: A Guide for First-Time Pet Owners</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec
+                  quam...</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="new-arrivals section-padding">
+    <div class="container-lg position-relative">
+      <div class="section-header d-flex flex-wrap justify-content-between pb-2">
+        <h2 class="section-title">Yangi Maxsulotlar</h2>
+
+      </div>
+
+      <div class="swiper product-swiper">
+        <div class="swiper-wrapper">
+
+          {% for i in newest %}
+          <div class="swiper-slide">
+            <div class="product-item mb-4">
+
+                    <figure class="flex justify-center items-center">
+                      <a href="single-product.html" title="Product Title">
+                        <img src="{{ i.get_image.url }}" style="max-width: 185px; max-height: 185px; width: 185px; height: 185px;"
+                             alt="{{ i.get_image.url }}"
+                             class="tab-image img-fluid rounded-3">
+                      </a>
+                    </figure>
+                    <div class="d-flex flex-column text-center">
+                      <h3 class="fs-5 fw-normal">
+                        <a href="single-product.html" class="text-decoration-none">{{ i.name }}</a>
+                      </h3>
+                      <div class="d-flex justify-content-center align-items-center gap-2">
+                        {% if i.discount %}
+                        <del style="color: red;">{{ i.org_price }}</del>
+                        {% endif %}
+                        <span class="text-dark fw-semibold">{{ i.get_price }} UZS</span>
+                      </div>
+
+                      <div class="d-flex justify-content-center align-items-center gap-2">
+                        <span class="text-danger fw-semibold">Skidka: {{ i.discount }}%  </span>
+                      </div>
+
+                      <div class="button-area p-3">
+
+                        <div class=" flex justify-center items-center"><a href="{% url 'detail' pk=i.id %}" class="btn btn-primary rounded-1 flex justify-center items-center fs-7 btn-cart">
+                          <svg width="18" height="18">
+                            <use xlink:href="#cart"></use>
+                          </svg>Zakaz berish</a>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+          </div>
+          {% endfor %}
+
+
+
+        </div>
+      </div>
+      
+      <div class="pagination-wrapper position-absolute z-3 start-0 end-0 bottom-0 text-center">
+        <div class="container">
+          <div class="product-swiper-pagination light"></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  {% include 'footer.html' %}
+
+  <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/plugins.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

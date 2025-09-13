@@ -1,2 +1,2 @@
 # climate-home
-Instagramdagi Online Do'kon
+Instagramdan Online Do'kon

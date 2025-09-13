@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahsulot Detallari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/vendor.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %} ">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+   {% include 'svg.html' %}
+
+  <div class="offcanvas offcanvas-top" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch">
+    <div class="offcanvas-header justify-content-center">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Search</span>
+        </h4>
+        <form role="search" action="" method="get" class="d-flex mt-3 gap-0">
+          <input class="form-control rounded-start rounded-0 bg-light" type="email"
+            placeholder="What are you looking for?" aria-label="What are you looking for?">
+          <button class="btn btn-dark rounded-end rounded-0" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container-lg">
+      <div class="row py-4">
+
+        <div class="col-sm-6 col-md-5 col-lg-3 justify-content-center justify-content-lg-between text-center text-sm-start d-flex gap-3">
+          <div class="d-flex align-items-center">
+            <a href="index.html">
+              <img src="{% static 'images/logo.svg' %}" alt="logo" class="img-fluid">
+            </a>
+            <button class="navbar navbar-toggler ms-3 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-7 d-none d-md-block">
+          <div class="search-bar row justify-content-between bg-light p-2 rounded-4">
+            <div class="col-11">
+              <form id="search-form" class="text-center" action="index.html" method="post">
+                <input type="text" class="form-control border-0 bg-transparent"
+                  placeholder="Search for more than 20,000 products">
+              </form>
+            </div>
+            <div class="col-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                  d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="p-0 navbar navbar-expand-lg">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-body justify-content-center">
+            <ul class="navbar-nav mb-0">
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end active">
+                <a href="#" class="nav-link fw-bold px-4 py-3">Home</a>
+              </li>
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end">
+                <a href="#sale" class="nav-link fw-bold px-4 py-3">Free Delivery</a>
+              </li>
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end">
+                <a href="#blog" class="nav-link fw-bold px-4 py-3">Blog</a>
+              </li>
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end">
+                <a href="#shop" class="nav-link fw-bold px-4 py-3">Shop</a>
+              </li>
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end">
+                <a href="#blog" class="nav-link fw-bold px-4 py-3">Offers</a>
+              </li>
+              <li class="nav-item border-end-0 border-lg-end-0 border-lg-end">
+                <a href="#sale" class="nav-link fw-bold px-4 py-3">Sale</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-12 section-padding">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-slide-up">
+      <!-- Image Gallery -->
+      <div class="bg-white rounded-xl shadow-xl p-6 border border-custom">
+        <!-- Main Image -->
+        <div class="w-full h-[400px] p-[20px] flex justify-center items-center">
+          <img id="mainImage" src="{{ prod.get_image.url }}" alt="Main Product Image" class="w-auto h-full object-cover rounded-lg product-image">
+        </div>
+        <!-- Thumbnails -->
+        <div class="flex gap-4 mt-4 justify-center">
+          {% for i in prod.images.all %}
+          <img src="{{ i.img.url }}" alt="{{ i.img.url }}" class="w-20 h-20 object-cover rounded-lg cursor-pointer thumbnail animate-fade-right" style="animation-delay: 0.3s;" onclick="changeImage('{{ i.img.url }}', this)">
+          {% endfor %}
+
+        </div>
+      </div>
+
+      <!-- Product Details & Order Form -->
+      <form class="bg-white rounded-xl shadow-xl p-6 border border-custom flex flex-col justify-between" method="post" action="{% url 'send_message' %}">
+        {% csrf_token %}
+        <div>
+          <div class="text-center mb-4">
+            <h1 class="text-3xl font-bold text-dark mb-2" style="font-family: var(--heading-font);">{{ prod.name }}</h1>
+
+            <div class="text-3xl font-semibold text-[#1FA800]">{{ prod.get_price }} so'm </div>
+
+            {% if prod.discount %}
+            <div class="text-xl font-semibold text-red-500/75"> {{ prod.get_discount }}<br> <del>{{ prod.org_price }} so'm</del> </div>
+            {% endif %}
+          </div>
+
+          <!-- Order Form -->
+          <div class="order-form">
+            <h2 class="text-xl font-bold text-dark mb-4 text-center">Buyurtma berish</h2>
+            <div class="text-center mb-3">
+              <strong>Mahsulot narxi: {{ prod.get_price }} so'm</strong>
+            </div>
+
+            <div class="mb-3">
+              <label class="block text-sm font-medium text-body-color mb-2">Yetqazib berish narxi: 500 000 so'mdan o'tgan barcha xaridlar uchun bepul</label>
+            </div>
+
+              <div class="mb-3">
+                <label class="block text-sm font-medium text-body-color mb-2">Ismingiz</label>
+                <input type="text" placeholder="Ismingiz" name="user" class="w-full p-2 border border-custom rounded" required>
+              </div>
+
+              <div class="mb-3" hidden>
+                <label class="block text-sm font-medium text-body-color mb-2">Ismingiz</label>
+                <input type="number" value="{{ prod.id }}" name="product_id" class="w-full p-2 border border-custom rounded" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="block text-sm font-medium text-body-color mb-2">Telefon raqamingiz</label>
+                <input type="tel" id="phoneInput" pattern="\+998[0-9]{9}" placeholder="+998 90 123 45 67" name="phone" class="w-full p-2 border border-custom rounded" required>
+              </div>
+
+            {% if success %}
+             <div id="successAlert" class="absolute top-3 right-3 flex items-start justify-between w-full max-w-md p-4 bg-white border-l-8 border-green-500 rounded-lg shadow-md">
+                <div class="flex items-center gap-3">
+                  <!-- Icon -->
+                  <div class="text-green-500 text-2xl">
+                    <i class="fa-solid fa-circle-check"></i>
+                  </div>
+
+                  <!-- Text -->
+                  <div>
+                    <p class="text-black font-semibold">Success</p>
+                    <p class="text-gray-500 text-sm">{{ success }}</p>
+                  </div>
+                </div>
+
+                <!-- Close button -->
+                <button type="button" onclick="closeAlert()" class="text-gray-400 hover:text-gray-600 text-lg leading-none">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            {% endif %}
+
+
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <button type="submit" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart w-full">Buyurtma berish</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Product Description Section -->
+    <div class="mt-12">
+      <h2 class="text-2xl font-bold text-dark mb-6 text-center" style="font-family: var(--heading-font);">Mahsulot haqida batafsil</h2>
+      <div class="bg-white rounded-xl shadow-xl p-6 border border-custom">
+
+        <p class="text-body-color mb-4">
+          {{ prod.description }}
+        </p>
+
+        {% if prod.infos.all %}
+        <ul class="list-disc list-inside text-body-color">
+          {% for i in prod.infos.all %}
+          <li><strong>{{ i.key }}:</strong> {{ i.desc }}</li>
+          {% endfor %}
+
+        </ul>
+        {% endif %}
+
+        {% if prod.extra_desc %}
+        <p class="text-body-color mt-4">
+            {{ prod.extra_desc }}
+        </p>
+        {% endif %}
+
+
+      </div>
+    </div>
+  </div>
+
+  <section class="new-arrivals section-padding">
+    <div class="container-lg position-relative">
+      <div class="section-header d-flex flex-wrap justify-content-between pb-2">
+        <h1 class="text-3xl font-bold text-dark mb-2" style="font-family: var(--heading-font);">O'xshash Maxsulotlar</h1>
+      </div>
+      <div class="swiper product-swiper">
+        <div class="swiper-wrapper">
+          {% for i in products %}
+          <div class="swiper-slide">
+            <div class="product-item mb-4">
+              <figure  class="flex justify-center items-center">
+                <a href="{% url 'detail' pk=i.id %}" title="Product Title">
+                  <img src="{{ i.get_image.url }}" style="max-width: 211px; max-height: 185px; width: 100%; height: 185px;"
+                       alt="{{ i.get_image.url }}"
+                       class="tab-image img-fluid rounded-3">
+                </a>
+              </figure>
+              <div class="d-flex flex-column text-center">
+                <h3 class="fs-5 fw-normal">
+                  <a href="single-product.html" class="text-decoration-none">{{ i.name }}</a>
+                </h3>
+                <div class="d-flex justify-content-center align-items-center gap-2">
+                  {% if i.discount %}
+                  <del style="color: red;">{{ i.org_price }}</del>
+                  {% endif %}
+                  <span class="text-dark fw-semibold">{{ i.get_price }} UZS</span>
+                </div>
+                <div class="d-flex justify-content-center align-items-center gap-2">
+                  <span class="text-danger fw-semibold">Skidka: {{ i.discount }}%  </span>
+                </div>
+                <div class="button-area p-3">
+                  <div><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Zakaz berish
+                  </a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="pagination-wrapper position-absolute z-3 start-0 end-0 bottom-0 text-center">
+        <div class="container">
+          <div class="product-swiper-pagination light"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    {% include 'footer.html' %}
+
+
+  <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/plugins.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+
+  <script>
+   document.getElementById("phoneInput").addEventListener("input", function(e) {
+          let value = e.target.value.replace(/\D/g, ""); // Faqat raqamlarni olish
+          if (value.startsWith("998")) {
+              value = value.slice(3); // +998 ni olib tashlash
+          }
+          if (value.length > 9) {
+              value = value.slice(0, 9); // 9 ta raqamdan oshmasligi uchun
+          }
+          let formatted = "+998";
+          if (value.length > 0) formatted += value.slice(0, 2);
+          if (value.length > 2) formatted += value.slice(2, 5);
+          if (value.length > 5) formatted += value.slice(5, 7);
+          if (value.length > 7) formatted += value.slice(7, 9);
+          e.target.value = formatted;  // Probel qo‘shilmagan holda formatlangan qiymat
+      });
+
+
+     // Auto-hide after 3 seconds
+      setTimeout(() => {
+        const alert = document.getElementById("successAlert");
+        if (alert) {
+          alert.classList.add("opacity-0");
+          setTimeout(() => alert.remove(), 500); // Remove after fade-out
+        }
+      }, 3000);
+
+      // Manual close function
+      function closeAlert() {
+        const alert = document.getElementById("successAlert");
+        if (alert) {
+          alert.classList.add("opacity-0");
+          setTimeout(() => alert.remove(), 500);
+        }
+      }
+
+
+    // Image switching
+    function changeImage(imageUrl, element) {
+      document.getElementById('mainImage').src = imageUrl;
+      document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    // Swiper initialization
+    if (document.querySelector('.swiper')) {
+      new Swiper('.product-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: '.product-swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        }
+      });
+    }
+  </script>
+</body>
+</html>
