@@ -208,4 +208,5 @@ __marimo__/
 
 media/
 
-
+migrations/
+staticfiles/
