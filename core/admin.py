@@ -8,16 +8,15 @@ from .models import Category, Product, ProductImg, Comment, Blog, InfoProduct, T
 
 # Register your models here.
 
-class TgAdminInline(admin.StackedInline):
-    model = Admin
-    extra = 3
-
-
 @admin.register(TgBot)
 class TgBot(admin.ModelAdmin):
     list_display = ["bot_token", "bot_username"]
     list_display_links = ["bot_token", "bot_username"]
-    inlines = [TgAdminInline]
+
+@admin.register(Admin)
+class TgBot(admin.ModelAdmin):
+    list_display = ["name", "user_id"]
+    list_display_links = ["name", "user_id"]
 
 
 @admin.register(Category)
