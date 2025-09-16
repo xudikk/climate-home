@@ -22,7 +22,7 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=256)
     price = models.PositiveIntegerField()
-    discount = models.SmallIntegerField(default=0, verbose_name="Chegirma Foizlarda")   # 15
+    discount = models.SmallIntegerField(default=0, verbose_name="Chegirma Foizlarda")  # 15
     order_count = models.BigIntegerField(default=0)
     description = models.TextField()
     extra_desc = models.TextField(null=True, blank=True)
@@ -45,8 +45,8 @@ class Product(models.Model):
     def get_discount(self):
         return f"Skidka: {self.discount}%"
 
-    def get_price(self):            # 1-0.15 => 0.85
-        price = self.price * (1-(self.discount/100))
+    def get_price(self):  # 1-0.15 => 0.85
+        price = self.price * (1 - (self.discount / 100))
         return f"{int(price):,}"
 
     def get_image(self):
@@ -62,7 +62,6 @@ class InfoProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='infos')
     key = models.CharField("Kalit", max_length=56)
     desc = models.CharField(max_length=256)
-
 
 
 class Comment(models.Model):
@@ -94,5 +93,3 @@ class Admin(models.Model):
 
     def __str__(self):
         return self.name
-
-

@@ -3,10 +3,21 @@ import datetime
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Category, Product, ProductImg, Comment, Blog, InfoProduct
+from .models import Category, Product, ProductImg, Comment, Blog, InfoProduct, TgBot, Admin
 
 
 # Register your models here.
+
+class TgAdminInline(admin.StackedInline):
+    model = Admin,
+    extra = 3
+
+
+@admin.register(TgBot)
+class TgBot(admin.ModelAdmin):
+    list_display = ["bot_token", "bot_username"]
+    list_display_links = ["bot_token", "bot_username"]
+    inlines = [TgAdminInline]
 
 
 @admin.register(Category)
