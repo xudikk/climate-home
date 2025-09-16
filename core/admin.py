@@ -9,7 +9,7 @@ from .models import Category, Product, ProductImg, Comment, Blog, InfoProduct, T
 # Register your models here.
 
 class TgAdminInline(admin.StackedInline):
-    model = Admin,
+    model = Admin
     extra = 3
 
 
