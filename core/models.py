@@ -80,3 +80,19 @@ class Blog(models.Model):
     link = models.URLField()
 
 
+class TgBot(models.Model):
+    bot_token = models.CharField(max_length=512)
+    bot_username = models.CharField(max_length=56, null=True, blank=True)
+
+    def __str__(self):
+        return self.bot_username
+
+
+class Admin(models.Model):
+    name = models.CharField(max_length=56)
+    user_id = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+
