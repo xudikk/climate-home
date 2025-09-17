@@ -141,7 +141,8 @@
     <div id="quickOrder" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">
         <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl animate-fade-in-up">
             <h3 class="text-2xl font-bold text-gray-800 mb-4">Tez Buyurtma 🚀</h3>
-            <form id="quickOrderForm">
+            <form id="quickOrderForm" method="post" action="{% url 'send_message' %}">
+                {% csrf_token %}
                 <input type="hidden" name="product_id" id="productIdInput" value="">
                 <input type="text" name="name" placeholder="Ismingiz..." required class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-smart-blue">
                 <input type="tel" name="phone" placeholder="Telefon raqam..." required class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-smart-blue">
@@ -150,6 +151,33 @@
             </form>
         </div>
     </div>
+
+
+
+
+    {% if success %}
+     <div id="successAlert" class="absolute top-3 right-3 flex items-start justify-between w-full max-w-md p-4 bg-white border-l-8 border-green-500 rounded-lg shadow-md">
+        <div class="flex items-center gap-3">
+          <!-- Icon -->
+          <div class="text-green-500 text-2xl">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+
+          <!-- Text -->
+          <div>
+            <p class="text-black font-semibold">Success</p>
+            <p class="text-gray-500 text-sm">{{ success }}</p>
+          </div>
+        </div>
+
+        <!-- Close button -->
+        <button type="button" onclick="closeAlert()" class="text-gray-400 hover:text-gray-600 text-lg leading-none">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    {% endif %}
+
+
 
     <footer class="section-padding pb-5 bg-dark text-secondary-emphasis" data-bs-theme="dark">
         <div class="container-lg">
@@ -377,20 +405,6 @@
         document.getElementById('productIdInput').value = '';
     }
 
-    // Forma yuborish
-    document.getElementById('quickOrderForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const formData = new FormData(this);
-        const productId = formData.get('product_id');
-        const name = formData.get('name');
-        const phone = formData.get('phone');
-
-        // Bu yerda serverga AJAX orqali yuborish mumkin, hozircha console
-        console.log('Buyurtma:', { product_id: productId, name: name, phone: phone });
-
-        alert('Buyurtma yuborildi! Tez orada bog\'lanamiz.');
-        closeQuickOrder();
-    });
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

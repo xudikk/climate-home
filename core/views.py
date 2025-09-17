@@ -70,6 +70,7 @@ def send_message(request):
     if request.POST:
         data = request.POST
         product = Product.objects.filter(id=data.get("product_id", 0)).first()
+        print("shu yerga keldi!!!>>>>>>>>")
         if not product:
             return redirect("home")
         message = f"Bizda Yangi Zakaz:\n" \
@@ -86,7 +87,7 @@ def send_message(request):
         request.session['success'] = "Zakaz Qabul Qilindi Adminlar tez orada siz bn aloqaga chiqishadi"
         return redirect("detail", pk=data['product_id'])
 
-    return redirect("home")
+    return redirect("products")
 
 
 
