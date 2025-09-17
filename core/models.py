@@ -88,11 +88,24 @@ class Comment(models.Model):
 
 
 class Blog(models.Model):
-    img = models.ImageField(upload_to="blogs/", null=True)
-    date = models.DateTimeField(auto_now_add=True)
     title = models.CharField("Mavzu:", max_length=512)
     short_desc = models.TextField()
+    img = models.ImageField(upload_to="blogs/", null=True)
+    date = models.DateTimeField(auto_now_add=True)
     link = models.URLField()
+
+    def image(self):
+        if self.img:
+            return self.img.url
+
+    def get_date(self):
+        hozir = datetime.datetime.now()
+        minut = int((hozir - self.date).total_seconds() // 60)
+        if minut == 0:
+            return "Hozir"
+        if 0 < minut < 60:
+            return f"{minut} minut oldin"
+        return self.date.strftime("%d %B %Y")
 
 
 class TgBot(models.Model):

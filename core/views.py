@@ -9,7 +9,7 @@ from django.conf import settings
 # Create your views here.
 from django.utils import timezone
 
-from core.models import Product, Category, TgBot, Admin
+from core.models import Product, Category, TgBot, Admin, Blog
 
 
 def index(request, slug=None):
@@ -23,7 +23,8 @@ def index(request, slug=None):
 
     ctx = {
         "products": products,
-        "newest": Product.objects.filter(date__gte=timezone.now() - timedelta(days=7)).order_by('-date')
+        "newest": Product.objects.filter(date__gte=timezone.now() - timedelta(days=7)).order_by('-date'),
+        "blogs": Blog.objects.all().order_by("-pk")[:3]
 
     }
     return render(request, 'index.html', ctx)
