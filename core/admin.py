@@ -13,6 +13,7 @@ class TgBot(admin.ModelAdmin):
     list_display = ["bot_token", "bot_username"]
     list_display_links = ["bot_token", "bot_username"]
 
+
 @admin.register(Admin)
 class TgBot(admin.ModelAdmin):
     list_display = ["name", "user_id"]
@@ -21,8 +22,19 @@ class TgBot(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ["id", "name", "slug"]
+    list_display = ["id", "name", "slug", "display_image"]
     list_display_links = ["id", 'name', "slug"]
+
+    def display_image(self, obj):
+        """Admin ro'yxatda kichik rasmni ko'rsatadi."""
+        if obj.img:
+            return format_html(
+                '<img src="{}" style="max-height: 75px; max-width: 75px;" />',
+                obj.img.url
+            )
+        return "Rasm yo'q"
+
+    display_image.short_description = "Rasm"
 
 
 class ImgInline(admin.StackedInline):

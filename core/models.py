@@ -9,6 +9,7 @@ from django.utils.text import slugify
 class Category(models.Model):
     name = models.CharField(max_length=56)
     slug = models.SlugField(max_length=56, null=True, blank=True)
+    img = models.ImageField(upload_to='ctgs', null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -18,6 +19,11 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def image(self):
+        if self.img:
+            return self.img.url
+
+
 
 class Product(models.Model):
     name = models.CharField(max_length=256)
@@ -26,9 +32,19 @@ class Product(models.Model):
     order_count = models.BigIntegerField(default=0)
     description = models.TextField()
     extra_desc = models.TextField(null=True, blank=True)
+    is_limited = models.BooleanField(default=False, verbose_name="Cheklanganligi: ", choices=[
+        (True, "Cheklangan"),
+        (False, "Cheklanmagan"),
+    ])
 
     ctg = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="products")
     date = models.DateTimeField(auto_now_add=True)
+
+    def hot(self):
+        return self.order_count > 2000
+
+    def has_discount(self):
+        return bool(self.discount)
 
     def get_date(self, obj):
         hozir = datetime.datetime.now()
