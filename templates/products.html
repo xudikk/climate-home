@@ -134,7 +134,7 @@
                 {% for i in hots %}
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500 group border-4 border-smart-pink animate-pulse-slow card-3d">
                     <div class="relative overflow-hidden flex justify-center items-center">
-                        <img src="{{ i.get_image.url }}" alt="{{ i.name }} aksiyada" class="tab-image img-fluid rounded-3 h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                        <img src="{{ i.get_image }}" alt="{{ i.name }} aksiyada" class="tab-image img-fluid rounded-3 h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
                         <span class="absolute top-4 left-4 bg-red-500 text-white px-4 py-2 rounded-full text-lg font-bold animate-pulse">-{{ i.discount }}%</span>
                     </div>
                     <div class="p-6">
@@ -309,7 +309,7 @@
 // Mock Products Data - ID va ssilka qo'shildi
     const products = [
         {% for i in products %}
-            { id: {{ i.id }}, name: '{{ i.name }}', price: '{{ i.get_price }} so\'m', img: '{{ i.get_image.url }}', discount: {{ i.discount }}, sale: {% if i.has_discount %}true{% else %}false{% endif %}, hot: {% if i.hot %}true{% else %}false{% endif %}, url: '{% url 'detail' pk=i.id %}' }{% if not forloop.last %},{% endif %}
+            { id: {{ i.id }}, name: '{{ i.name }}', price: '{{ i.get_price }} so\'m', img: '{{ i.get_image }}', discount: {{ i.discount }}, sale: {% if i.has_discount %}true{% else %}false{% endif %}, hot: {% if i.hot %}true{% else %}false{% endif %}, url: '{% url 'detail' pk=i.id %}' }{% if not forloop.last %},{% endif %}
         {% empty %}
             // Hech qanday mahsulot yo'q
         {% endfor %}

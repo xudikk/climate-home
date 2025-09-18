@@ -157,8 +157,8 @@
                   <div class="product-item mb-4">
                     <figure class="flex justify-center items-center">
                       <a href="{% url 'detail' pk=i.id %}" title="Product Title">
-                        <img src="{{ i.get_image.url }}" style="max-width: 185px; max-height: 185px; width: 185px; height: 185px;"
-                             alt="{{ i.get_image.url }}" class="tab-image img-fluid rounded-3">
+                        <img src="{{ i.get_image }}" style="max-width: 185px; max-height: 185px; width: 185px; height: 185px;"
+                             alt="{{ i.get_image }}" class="tab-image img-fluid rounded-3">
                       </a>
                     </figure>
                     <div class="d-flex flex-column text-center">
@@ -238,8 +238,8 @@
             <div class="product-item mb-4">
               <figure class="flex justify-center items-center">
                 <a href="single-product.html" title="Product Title">
-                  <img src="{{ i.get_image.url }}" style="max-width: 185px; max-height: 185px; width: 185px; height: 185px;"
-                       alt="{{ i.get_image.url }}" class="tab-image img-fluid rounded-3">
+                  <img src="{{ i.get_image }}" style="max-width: 185px; max-height: 185px; width: 185px; height: 185px;"
+                       alt="{{ i.get_image }}" class="tab-image img-fluid rounded-3">
                 </a>
               </figure>
               <div class="d-flex flex-column text-center">

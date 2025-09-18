@@ -66,7 +66,9 @@ class Product(models.Model):
         return f"{int(price):,}"
 
     def get_image(self):
-        return self.images.first().img
+        if self.images.first() and self.images.first().img:
+            return self.images.first().img.url
+        return "Rasm topilmadi"
 
 
 class ProductImg(models.Model):

@@ -50,7 +50,7 @@
       <div class="bg-white rounded-xl shadow-xl p-6 border border-custom">
         <!-- Main Image -->
         <div class="w-full h-[400px] p-[20px] flex justify-center items-center">
-          <img id="mainImage" src="{{ prod.get_image.url }}" alt="Main Product Image" class="w-auto h-full object-cover rounded-lg product-image">
+          <img id="mainImage" src="{{ prod.get_image }}" alt="Main Product Image" class="w-auto h-full object-cover rounded-lg product-image">
         </div>
         <!-- Thumbnails -->
         <div class="flex gap-4 mt-4 justify-center">
@@ -174,8 +174,8 @@
             <div class="product-item mb-4">
               <figure  class="flex justify-center items-center">
                 <a href="{% url 'detail' pk=i.id %}" title="Product Title">
-                  <img src="{{ i.get_image.url }}" style="max-width: 211px; max-height: 185px; width: 100%; height: 185px;"
-                       alt="{{ i.get_image.url }}"
+                  <img src="{{ i.get_image }}" style="max-width: 211px; max-height: 185px; width: 100%; height: 185px;"
+                       alt="{{ i.get_image }}"
                        class="tab-image img-fluid rounded-3">
                 </a>
               </figure>
