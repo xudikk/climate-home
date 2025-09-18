@@ -13,16 +13,13 @@ from core.models import Product, Category, TgBot, Admin, Blog
 
 
 def index(request, slug=None):
-    ctg = None
-    if slug:
-        ctg = Category.objects.filter(slug=slug).first()
+    products = Product.objects.all().order_by('-id')
+    ctg = Category.objects.filter(slug=slug).first()
     if ctg:
-        products = Product.objects.filter(ctg=ctg).order_by('-order_count')
-    else:
-        products = Product.objects.all().order_by('-order_count')[:12]
+        products = products.filter(ctg=ctg)
 
     ctx = {
-        "products": products,
+        "products": products[:12],
         "newest": Product.objects.filter(date__gte=timezone.now() - timedelta(days=7)).order_by('-date'),
         "blogs": Blog.objects.all().order_by("-pk")[:3]
 
@@ -53,8 +50,13 @@ def detail(request, pk):
 
 
 def product(request, slug=None):
-    products = Product.objects.all().order_by('-id')
     ctg = Category.objects.filter(slug=slug).first()
+    key = request.GET.get("search", '')
+    if key or ctg:
+        products = Product.objects.filter(Q(name__icontains=key) | Q(description__icontains=key))
+    else:
+        products = Product.objects.all().order_by('-id')
+
     if ctg:
         products = products.filter(ctg=ctg)
 
@@ -71,7 +73,6 @@ def send_message(request):
     if request.POST:
         data = request.POST
         product = Product.objects.filter(id=data.get("product_id", 0)).first()
-        print("shu yerga keldi!!!>>>>>>>>")
         if not product:
             return redirect("home")
         message = f"Bizda Yangi Zakaz:\n" \

@@ -1,64 +1,48 @@
 {% load static %}
 
 
-  <section class="">
-    <div class="">
-       <div class="section-header d-flex flex-wrap justify-content-center pb-2 mb-10">
-          <h2 class="section-title text-3xl">Nima Uchun Bizda</h2>
+  <section class="py-12 bg-white/70 glass">
+    <div class="container mx-auto px-4">
+        <div class="section-header d-flex flex-wrap justify-content-center pb-2 mb-10 animate-fade-in-up">
+            <h2 class="text-3xl font-bold text-gray-800">Nima Uchun Bizda</h2>
         </div>
 
-      <div class="grid grid-cols-3 gap-20 w-full px-24 items-start">
-
-          <div class=" flex flex-col justify-center items-center">
-
-            <div class="mb-3">
-              <svg class="text-primary flex-shrink-0 me-3" width="3em" height="3em">
-                <use xlink:href="delivery"></use>
-              </svg>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full px-4 items-start">
+            <!-- Bepul Yetqazish -->
+            <div class="flex flex-col justify-center items-center text-center bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in-up">
+                <div class="mb-3">
+                    <i class="fas fa-shipping-fast text-blue-500 text-4xl"></i>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                    <h5 class="text-lg font-semibold text-gray-800">Bepul Yetqazish</h5>
+                    <p class="text-gray-600 text-sm mt-2">Agar xaridlarning umumiy summasi 500 ming so'mdan oshsa, O'zbekiston bo'yicha yetqazib berish tekin</p>
+                </div>
             </div>
 
-            <div class="flex flex-col justify-center items-center">
-              <h5 class="fs-5 fw-normal">Bepul Yetqazish</h5>
-              <p class="card-text text-center">Agarda Xaridlarning umumiy summasi 500 ming so'mdan oshsa O'zbekiston
-                bo'yicha yetqazib berish tekin </p>
+            <!-- 100% Xavfsiz To'lov -->
+            <div class="flex flex-col justify-center items-center text-center bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.2s;">
+                <div class="mb-3">
+                    <i class="fas fa-shield-alt text-blue-500 text-4xl"></i>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                    <h5 class="text-lg font-semibold text-gray-800">100% Xavfsiz To'lov</h5>
+                    <p class="text-gray-600 text-sm mt-2">Sizning to'lovlaringiz xavfsiz va himoyalangan, ishonchli to'lov tizimlari orqali amalga oshiriladi.</p>
+                </div>
             </div>
 
-          </div>
-
-          <div class=" flex flex-col justify-center items-center">
-            <div class="mb-3">
-              <svg class="text-primary flex-shrink-0 me-3" width="3em" height="3em">
-                <use xlink:href="Shop"></use>
-              </svg>
+            <!-- Sifat Kafolati -->
+            <div class="flex flex-col justify-center items-center text-center bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <div class="mb-3">
+                    <i class="fas fa-check-circle text-blue-500 text-4xl"></i>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                    <h5 class="text-lg font-semibold text-gray-800">Sifat Kafolati</h5>
+                    <p class="text-gray-600 text-sm mt-2">Biz barcha mahsulotlarimizga 100% sifat kafolatini beramiz.</p>
+                </div>
             </div>
-            <div class="flex flex-col justify-center items-center">
-              <h5 class="fs-5 fw-normal">100% Xavsiz To'lov</h5>
-              <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
-            </div>
-          </div>
-
-          <div class=" flex flex-col justify-center items-center">
-            <div class="mb-3">
-              <svg class="text-primary flex-shrink-0 me-3" width="3em" height="3em">
-                <use xlink:href="fresh"></use>
-              </svg>
-            </div>
-            <div class="flex flex-col justify-center items-center">
-              <h5 class="fs-5 fw-normal">Sifat Kafolati</h5>
-              <p class="card-text text-center">Biz barcha mahsulotlarimizgaa 100% kafolat beramiz</p>
-            </div>
-          </div>
-
-          <div class="">
-            <div class="mb-3">
-              <svg class="text-primary flex-shrink-0 me-3" width="3em" height="3em">
-                <use xlink:href="calendar"></use>
-              </svg>
-            </div>
-          </div>
-      </div>
+        </div>
     </div>
-  </section>
+</section>
 
   <footer class="section-padding pb-5 bg-dark text-secondary-emphasis" data-bs-theme="dark">
     <div class="container-lg">
