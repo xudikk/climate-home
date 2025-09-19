@@ -24,7 +24,6 @@ class Category(models.Model):
             return self.img.url
 
 
-
 class Product(models.Model):
     name = models.CharField(max_length=256)
     price = models.PositiveIntegerField()
