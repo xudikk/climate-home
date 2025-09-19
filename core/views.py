@@ -34,7 +34,7 @@ def detail(request, pk):
             "Bunday Maxsulot Topilmadi"
         )
 
-    products = Product.objects.all().order_by('-order_count')
+    products = Product.objects.filter(ctg=prod.ctg).order_by('-pk')
     ctx = {
         "products": products,
         "prod": prod
