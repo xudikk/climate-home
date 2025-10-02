@@ -181,7 +181,7 @@
               </figure>
               <div class="d-flex flex-column text-center">
                 <h3 class="fs-5 fw-normal">
-                  <a href="single-product.html" class="text-decoration-none">{{ i.name }}</a>
+                  <a href="{% url 'detail' pk=i.id %}" class="text-decoration-none">{{ i.name }}</a>
                 </h3>
                 <div class="d-flex justify-content-center align-items-center gap-2">
                   {% if i.discount %}
@@ -193,7 +193,7 @@
                   <span class="text-danger fw-semibold">Skidka: {{ i.discount }}%  </span>
                 </div>
                 <div class="button-area p-3">
-                  <div><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
+                  <div><a href="{% url 'detail' pk=i.id %}" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
                     <i class="fa-solid fa-cart-shopping"></i>
                     Zakaz berish
                   </a></div>

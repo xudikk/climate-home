@@ -20,7 +20,7 @@ def index(request, slug=None):
 
     ctx = {
         "products": products[:12],
-        "newest": Product.objects.filter(date__gte=timezone.now() - timedelta(days=7)).order_by('-date'),
+        "newest": Product.objects.filter(date__gte=timezone.now() - timedelta(days=15)).order_by('-date'),
         "blogs": Blog.objects.all().order_by("-pk")[:3]
 
     }
@@ -79,7 +79,7 @@ def send_message(request):
                   f"Xaridor: {data.get('user')}\n" \
                   f"Raqami: <b>{data.get('phone')}</b>\n" \
                   f"Maxsulot: {product.name}\n" \
-                  f"Maxsulot saytda: {f'http://127.0.0.1:8000/detail/{product.id}'}"
+                  f"Maxsulot saytda: {f'climatehome.uz/detail/{product.id}'}"
         product.order_count += 1
         product.save()
         token = TgBot.objects.first()
